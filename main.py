@@ -11,19 +11,19 @@ cashier_instance = Cashier()
 
 
 def main():
-    sandwich_size = input("Enter sandwich size (small, medium, large): ")
-    order_ingredients = recipes[sandwich_size]["ingredients"]
-    if sandwich_maker_instance.check_resources(order_ingredients):
+    sandwich_size = input("What would you like ? small / medium / large: ")
+    extra_ingredients = recipes[sandwich_size]["ingredients"]
+    if sandwich_maker_instance.check_resources(extra_ingredients):
         cost = recipes[sandwich_size]["cost"]
-        print("Your order costs: $", cost)
+        print("The total cost for your order is: $", cost)
         coins = cashier_instance.process_coins()
         if cashier_instance.transaction_result(coins, cost):
-            sandwich_maker_instance.make_sandwich(sandwich_size, order_ingredients)
-            print("Your sandwich is being made. Enjoy!")
+            sandwich_maker_instance.make_sandwich(sandwich_size, extra_ingredients)
+            print("Your sandwich is ready. Bon Appetit!")
         else:
-            print("Insufficient payment. Please try again.")
+            print("Not enough funds. Please insert more money")
     else:
-        print("Ingredients are not available to make your order.")
+        print("The machine is out of ingredients.")
 
 
 if __name__ == "__main__":

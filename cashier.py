@@ -5,11 +5,11 @@ class Cashier:
     def process_coins(self):
         """Returns the total calculated from coins inserted.
            Hint: include input() function here, e.g. input("how many quarters?: ")"""
-        quarters = int(input("Enter number of quarters: "))
-        dimes = int(input("Enter number of dimes: "))
-        nickles = int(input("Enter number of nickles: "))
-        pennies = int(input("Enter number of pennies: "))
-        return quarters * 0.25 + dimes * 0.1 + nickles * 0.05 + pennies * 0.01
+        dollar = int(input("How many one dollar? : "))
+        quarters = int(input("How many quarters?: "))
+        nickles = int(input("How many nickles?: "))
+        pennies = int(input("How many pennies?: "))
+        return dollar * 1 + quarters * 0.25 + nickles * 0.05 + pennies * 0.01
 
     def transaction_result(self, coins, cost):
         """Return True when the payment is accepted, or False if money is insufficient.
